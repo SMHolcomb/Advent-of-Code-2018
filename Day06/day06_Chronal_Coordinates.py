@@ -53,6 +53,7 @@ def main():
     max_y = 0
     coordinates = []
     locations = []
+    count = 0
 
     with open('day06_input.txt','r') as input_file:
     #with open('day06_testinput.txt','r') as input_file:
@@ -75,6 +76,11 @@ def main():
             # lambda  for every point in empty locations matrix,calc distance from every given coordinate
             distance = list(map(lambda point: calc_distance(point, (j,i)), coordinates ))
 
+            # for Part II:
+            sum_distance = sum(distance)
+            if sum_distance <10000:
+                count+=1
+
             # figure out which is the lowest distance and get the index of the closest provided coordinate
             min_dist = min(distance)
             min_index = distance.index(min_dist)
@@ -82,7 +88,7 @@ def main():
             #unique minimum distance (no tie and is minimum)
             if distance.count(min_dist) == 1:
                  locations[j][i] = min_index+1
-                 
+              
     # gind unbounded areas -- on the edges of the locations matrix
     unbounded = []
 
@@ -120,7 +126,14 @@ def main():
     
     # get max size area
     max_area = max(sizes, key=lambda point: sizes[point]) #key
-    print("Size of max unbounded area:", sizes[max_area]) #value
+    print("\nSize of max unbounded area:", sizes[max_area], "\n") #value
+
+
+
+    #PART II
+
+    print("total count <10000:", count, "\n")  
+
 
 
 if __name__ == "__main__":
