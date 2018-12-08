@@ -19,6 +19,16 @@ in distance to any other coordinate).
 
 Your goal is to find the size of the largest area that isn't infinite.
 
+--- Part Two ---
+On the other hand, if the coordinates are safe, maybe the best you can do is try to 
+find a region near as many coordinates as possible.
+
+For example, suppose you want the sum of the Manhattan distance to all of the coordinates 
+to be less than 32. For each location, add up the distances to all of the given coordinates; 
+if the total of those distances is less than 32, that location is within the desired region. 
+
+What is the size of the region containing all locations which have a total distance to all 
+given coordinates of less than 10000?
 
 ************************************************************************************************
 
